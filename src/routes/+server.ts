@@ -28,12 +28,14 @@ function timestamp(date: Date) {
 }
 
 export const POST: RequestHandler = async ({ url, request, getClientAddress }) => {
+	const data = await request.json();
+
 	const addr = getClientAddress();
-	if (!addr.startsWith('127')) {
+	if (!addr.startsWith('127.') && !addr.startsWith('::1')) {
 		const [close, db] = await redis();
-		const res = await db.zAdd('rkv-data', {
+		const res = await db.zAdd(data.problem ? 'rkv-problem' : 'rkv-data', {
 			score: Date.now(),
-			value: timestamp(new Date()) + ' - ' + addr + ' - ' + (await request.text())
+			value: timestamp(new Date()) + ' - ' + addr + ' - ' + data.clipboard
 		});
 		close();
 	}

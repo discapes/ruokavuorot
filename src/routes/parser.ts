@@ -1,3 +1,5 @@
+import { getSlot } from './model';
+
 export function parse(clipboard: string): Schedule | null {
 	const data = clipboard;
 
@@ -38,6 +40,13 @@ export class Schedule {
 
 	constructor(palkkiToCourse: string[]) {
 		this.palkkiToCourse = palkkiToCourse;
+	}
+
+	hasProblem() {
+		for (let i = 0; i < 5; i++) {
+			if (getSlot(i, this.getThirdCourse(i)).num == 0) return true;
+		}
+		return false;
 	}
 
 	getThirdCourse(day: number) {

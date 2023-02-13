@@ -9,7 +9,13 @@
 	function load(clipboard: string) {
 		localStorage.setItem('rkv-data', clipboard);
 		schedule = parse(clipboard);
-		fetch(window.location.href, { method: 'POST', body: clipboard });
+		fetch(window.location.href, {
+			method: 'POST',
+			body: JSON.stringify({
+				clipboard,
+				problem: !schedule || schedule.hasProblem()
+			})
+		});
 	}
 
 	if (browser) {
