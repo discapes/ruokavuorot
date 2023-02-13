@@ -12,7 +12,7 @@ export const dayToSlotToCourses = [
 		'BI01.8 ÄI04.2 KU01.8',
 		'RUA03.1 RUB15.4 UE02.5',
 		'MAA09.4 TSYENA12 MAA06.3',
-		'ENA03.9 ÄI07.8 GE01.7 TSYTE07',
+		'ENA03.9 ÄI07.8 ÄI06.8 GE01.7 TSYTE07',
 		'YH04.2 FY07.3 SAB25 SAB37'
 	],
 	[
