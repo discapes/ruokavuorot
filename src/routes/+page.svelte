@@ -37,7 +37,7 @@
 <div class="bg-sky-400 p-10 min-h-screen overflow-auto">
 	<div class="inline-flex flex-col items-center min-w-full">
 		<div class="p-10 md:px-32 bg-sky-200 text-neutral-800">
-			<h1>TSYK jakso 4 ruokavuorot</h1>
+			<h1>TSYK jakso 5 ruokavuorot</h1>
 			<p class="m-5 max-w-[400px] min-w-[200px]">
 				Etsi Wilman lukujärjestyksestä ensimmäinen kokonainen viikko, kopioi kaikki painamalla
 				<code>CTRL + A</code> ja <code>CTRL + C</code> (tai puhelimella <code>Valitse kaikki</code>
