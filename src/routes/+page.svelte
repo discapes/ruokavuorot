@@ -36,17 +36,21 @@
 
 <div class="bg-sky-400 p-10 min-h-screen overflow-auto">
 	<div class="inline-flex flex-col items-center min-w-full">
-		<div class="p-10 md:px-32 bg-sky-200 text-neutral-800">
+		<div class="p-10 md:px-32 bg-sky-200 text-neutral-800 flex-col flex gap-3">
 			<h1>TSYK jakso 5 ruokavuorot</h1>
-			<p class="m-5 max-w-[400px] min-w-[200px]">
+			<a
+				class="p-3 bg-white/70 text-blue-700 font-bold hover:bg-white"
+				href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
+				>Avaa 15 sekunnin ohjevideo</a
+			>
+			<p class="max-w-[400px] min-w-[200px]">
 				Etsi Wilman lukujärjestyksestä ensimmäinen kokonainen viikko, kopioi kaikki painamalla
 				<code>CTRL + A</code> ja <code>CTRL + C</code> (tai puhelimella <code>Valitse kaikki</code>
 				ja <code>Kopioi</code>) ja liitä se tänne painamalla
 				<code>CTRL + V</code> (tai puhelimella <code>Liitä</code> seuraavaan kentään). Tiedot säilyy
 				eli kannattaa kirjanmerkitä!
-				<br />
 			</p>
-			<div class="mb-5 mx-10 flex gap-3">
+			<div class="mx-10 flex gap-3">
 				<input
 					on:input={(e) => {
 						load(e.target.value);
@@ -61,6 +65,10 @@
 					>Paina jos ei toimi</button
 				> -->
 			</div>
+			<p class="max-w-[400px] min-w-[200px]">
+				Jos joku TSYKin kurssi puuttuu tietokannasta, pyrin lisäämään sen sinne muutaman päivän
+				sisällä. -M
+			</p>
 			{#if schedule}
 				<div class="bg-white/20 p-5 flex justify-center">
 					<table>
