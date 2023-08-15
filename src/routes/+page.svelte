@@ -37,7 +37,7 @@
 <div class="bg-sky-400 p-10 min-h-screen overflow-auto">
 	<div class="inline-flex flex-col items-center min-w-full">
 		<div class="p-10 md:px-32 bg-sky-200 text-neutral-800 flex-col flex gap-3">
-			<h1>TSYK jakso 5 ruokavuorot</h1>
+			<h1>TSYK jakso 1 ruokavuorot</h1>
 			<a
 				class="p-3 bg-white/70 text-blue-700 font-bold hover:bg-white"
 				href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
