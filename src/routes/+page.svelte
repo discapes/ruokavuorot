@@ -41,7 +41,7 @@
 			<a
 				class="p-3 bg-white/70 text-blue-700 font-bold hover:bg-white"
 				href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
-				>Avaa 15 sekunnin ohjevideo</a
+				>lyhyt ohjevideo</a
 			>
 			<p class="max-w-[400px] min-w-[200px]">
 				Etsi Wilman lukujärjestyksestä ensimmäinen kokonainen viikko, kopioi kaikki painamalla
