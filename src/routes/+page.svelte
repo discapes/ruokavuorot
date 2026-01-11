@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import './app.css';
 	import { getSlot } from './model';
 	import { parse, type Schedule } from './parser';
 
@@ -9,13 +8,6 @@
 	function load(clipboard: string) {
 		localStorage.setItem('rkv-data', clipboard);
 		schedule = parse(clipboard);
-		fetch(window.location.href, {
-			method: 'POST',
-			body: JSON.stringify({
-				clipboard,
-				problem: !schedule || schedule.hasProblem()
-			})
-		});
 	}
 
 	if (browser) {
@@ -47,8 +39,8 @@
 				Etsi Wilman lukujärjestyksestä ensimmäinen kokonainen viikko, kopioi kaikki painamalla
 				<code>CTRL + A</code> ja <code>CTRL + C</code> (tai puhelimella <code>Valitse kaikki</code>
 				ja <code>Kopioi</code>) ja liitä se tänne painamalla
-				<code>CTRL + V</code> (tai puhelimella <code>Liitä</code> seuraavaan kentään). Tiedot säilyy
-				eli kannattaa kirjanmerkitä!
+				<code>CTRL + V</code> (tai puhelimella <code>Liitä</code> seuraavaan kentään). Tiedot säilyy eli
+				kannattaa kirjanmerkitä!
 			</p>
 			<div class="mx-10 flex gap-3">
 				<input
@@ -72,39 +64,43 @@
 			{#if schedule}
 				<div class="bg-white/20 p-5 flex justify-center">
 					<table>
-						<tr>
-							<th class="font-bold">Päivä</th>
-							<th class="font-bold">Kurssi</th>
-							<th class="font-bold">#</th>
-							<th class="font-bold">Ruokailu</th>
-							<th class="font-bold">Välitunti</th>
-							<th class="font-bold">Oppitunti</th>
-						</tr>
-						{#each weekdays as wd, i}<tr>
-								<td>{wd}</td>
-								{#if schedule.getThirdCourse(i)}
-									<td>{schedule.getThirdCourse(i)}</td>
-									<td>
-										{getSlot(i, schedule.getThirdCourse(i)).num}
-									</td>
-									<td class="whitespace-nowrap">
-										{getSlot(i, schedule.getThirdCourse(i)).lunchTime}
-									</td>
-									<td class="whitespace-nowrap">
-										{getSlot(i, schedule.getThirdCourse(i)).breakTime}
-									</td>
-									<td class="whitespace-nowrap">
-										{getSlot(i, schedule.getThirdCourse(i)).lessonTime}
-									</td>
-								{:else}
-									<td>hyppy</td>
-									<td class="whitespace-nowrap">-</td>
-									<td class="whitespace-nowrap">-</td>
-									<td class="whitespace-nowrap">-</td>
-									<td class="whitespace-nowrap">-</td>
-								{/if}
+						<thead>
+							<tr>
+								<th class="font-bold">Päivä</th>
+								<th class="font-bold">Kurssi</th>
+								<th class="font-bold">#</th>
+								<th class="font-bold">Ruokailu</th>
+								<th class="font-bold">Välitunti</th>
+								<th class="font-bold">Oppitunti</th>
 							</tr>
-						{/each}
+						</thead>
+						<tbody>
+							{#each weekdays as wd, i}<tr>
+									<td>{wd}</td>
+									{#if schedule.getThirdCourse(i)}
+										<td>{schedule.getThirdCourse(i)}</td>
+										<td>
+											{getSlot(i, schedule.getThirdCourse(i)).num}
+										</td>
+										<td class="whitespace-nowrap">
+											{getSlot(i, schedule.getThirdCourse(i)).lunchTime}
+										</td>
+										<td class="whitespace-nowrap">
+											{getSlot(i, schedule.getThirdCourse(i)).breakTime}
+										</td>
+										<td class="whitespace-nowrap">
+											{getSlot(i, schedule.getThirdCourse(i)).lessonTime}
+										</td>
+									{:else}
+										<td>hyppy</td>
+										<td class="whitespace-nowrap">-</td>
+										<td class="whitespace-nowrap">-</td>
+										<td class="whitespace-nowrap">-</td>
+										<td class="whitespace-nowrap">-</td>
+									{/if}
+								</tr>
+							{/each}
+						</tbody>
 					</table>
 					<!-- <pre class="whitespace-pre-wrap">{JSON.stringify(rkv, null, 2)}</pre> -->
 				</div>
@@ -114,6 +110,7 @@
 </div>
 
 <style>
+	@import 'tailwindcss';
 	table tr td,
 	table tr th {
 		padding: 5px 20px;
